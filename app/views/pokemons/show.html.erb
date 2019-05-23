@@ -1,0 +1,21 @@
+<div class="work-feature-block row">
+  <img class="work-feature-block-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= @id %>.png" alt="2">
+  <h2 class="work-feature-block-header text-center"><strong><%= @poke_name.capitalize %></strong></h2>
+</div>
+<div class="work-feature-block row">
+  <div class="col-xs-12">
+    <label>Peso:</label>
+    <p><%= @peso %></p>
+    <label>Altura:</label>
+    <p><%= @altura %></p>
+    <label>Habilidades:</label>
+    <p><%= @ability_name_view %></p>
+    <label>Movimientos:</label>
+    <p><%= @move_name_view %></p>
+  </div>
+</div>
+<div class="row">
+  <%= link_to root_path, class:"btn btn-success btn-lg btn-block" do%>
+    Volver
+  <%end%>
+</div>

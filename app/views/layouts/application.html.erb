@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PokeTest</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="message-success">
+      <% if flash[:success] %>
+        <p class="alert alert-success alert-dismissible"><%= flash[:success] %></p>
+      <% end %>
+    </div>
+    <div id="message-error">
+      <% if flash[:error] %>
+        <p class="alert alert-danger alert-dismissible"><%= flash[:error] %></p>
+      <% end %>
+    </div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <h3 class="text-center pokemon-title"><strong>Pokemones Región Nacional</strong></h3>
+        </div>
+      </div>
+    </nav>
+    </br>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
+

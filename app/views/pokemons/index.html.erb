@@ -1,0 +1,22 @@
+<%  if @pokemons.nil? %>
+  <h4 class="work-feature-block-header text-center"><strong>Lo sentimos! No existen pokemones a mostrar en este momento</strong></h4>
+<%else%>
+  <div class="pokemon-table pokemon-three-column row">
+    <% @pokemons.each do |pokemon| %>
+      <div class="pokemon col-sm-4 col-lg-4">
+        <div class="pokemon-name">
+          <%= image_tag (Rails.configuration.image_base + pokemon["entry_number"].to_s + '.png') %>
+        </div>
+        <ul>
+          <li class="pokemon-feature"><%= pokemon["pokemon_species"]["name"].capitalize %></li>
+          <li class="pokemon-feature">
+            <%= link_to "Ver Detalles", {controller:"pokemons", action:"show", id: pokemon['entry_number'] }, class:"btn btn-success btn-pokemon-select"  %>
+          </li>
+        </ul>
+      </div>
+    <%end%>
+    <div class="digg_pagination">
+      <%= will_paginate @pokemons, :previous_label => 'Anterior', :next_label => 'Siguiente' %>
+    </div>
+  </div>
+<%end%>
